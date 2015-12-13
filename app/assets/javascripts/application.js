@@ -17,3 +17,5 @@
 //= require bootstrap-material-design/dist/js/ripples
 //= require turbolinks
 //= require_tree .
+
+$.material.init();
