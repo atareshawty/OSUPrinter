@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: db/osuprinter_development
+
+test:
+  <<: *default
+  database: db/osuprinter_test
+
+production:
+  <<: *default
+  database: db/osuprinter
