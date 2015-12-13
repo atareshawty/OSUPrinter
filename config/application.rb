@@ -33,5 +33,7 @@ module OSUPrinter
         :request_specs => true
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end

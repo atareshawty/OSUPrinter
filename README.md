@@ -54,7 +54,7 @@ Just run `rails server` and that's it! You should have a working instance of OSU
 
 ## Deployment
 
-We strongly encourage you to use [https://osuprinter.herokuapp.com](https://osuprinter.herokuapp.com), but if you would like your own version OSUPrinter can be easily deployed to Heroku.
+We strongly encourage you to use [https://osuprinter.herokuapp.com](https://osuprinter.herokuapp.com), but if you would like your own version, OSUPrinter can be easily deployed to Heroku.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -68,4 +68,4 @@ OSUPrinter is developed by these [contributors](https://github.com/kylekthompson
 
 ## Thanks
 
-Thanks to [Classroom for GitHub](https://github.com/education/classroom) for the lovely README!
+Thanks to [Classroom for GitHub](https://github.com/education/classroom) for the lovely README and scripts!
