@@ -64,7 +64,7 @@ We'd love to have you participate. Please check out our [contributing guidelines
 
 ## Contributors
 
-OSUPrinter is developed by these [contributors](https://github.com/education/classroom/graphs/contributors).
+OSUPrinter is developed by these [contributors](https://github.com/kylekthompson/OSUPrinter/graphs/contributors).
 
 ## Thanks
 
