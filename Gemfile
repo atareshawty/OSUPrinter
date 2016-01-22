@@ -13,6 +13,7 @@ gem 'quiet_assets'
 gem 'active_model_serializers'
 gem 'devise'
 gem 'simple_form'
+gem 'bower-rails'
 
 group :development, :test do
   gem 'byebug'
