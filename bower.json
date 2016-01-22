@@ -1,21 +1,13 @@
 {
-  "name": "OSUPrinter",
-  "homepage": "https://github.com/kylekthompson/OSUPrinter",
-  "authors": [
-    "Kyle Thompson <kyle@kylekthompson.com>"
-  ],
-  "description": "Easily print to OSU CSE and ECE printers",
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "vendor/assets/components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "bootstrap": "3.3.6",
-    "boostrap-material-design": "0.5.5"
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "primer-css": "2.4.0"
+    }
   }
 }
