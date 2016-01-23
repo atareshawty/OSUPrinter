@@ -40,9 +40,15 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
+    autoprefixer-rails (6.3.1)
+      execjs
+      json
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.1)
@@ -247,6 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  bootstrap-sass (~> 3.3.6)
   bower-rails
   byebug
   capybara
@@ -274,4 +281,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

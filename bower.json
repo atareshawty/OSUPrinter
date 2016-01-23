@@ -7,7 +7,6 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "primer-css": "2.4.0"
     }
   }
 }
