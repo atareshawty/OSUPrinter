@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   def home
   end
 
-  def guest_login
+  def show_guest_login
+  end
+
+  def create_guest_login
   end
 end
