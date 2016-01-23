@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+  <h1>Welcome to OSUPrinter!</h1>
+  <h4>We are here to make printing to CSE/ECE department printers easy for you.</h4>
+  <hr />
+  <p>To start your printing adventure, either continue as a guest or sign in. <br /> For those without accounts: if you would like to create an account, click <%= link_to "here", new_user_registration_path %>.</p>
+  <hr />
+
+  <!-- Medium and larger devices -->
+  <div class="row visible-md-block visible-lg-block">
+    <div class="col-md-offset-3 col-md-3">
+      <%= link_to "Guests", guests_path, class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+  </div>
+
+  <!-- Smaller than medium devices -->
+  <div class="visible-sm-block visible-xs-block text-center">
+    <%= link_to "Guests", guests_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
