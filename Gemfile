@@ -14,6 +14,7 @@ gem 'active_model_serializers'
 gem 'devise'
 gem 'simple_form'
 gem 'bower-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   gem 'byebug'
