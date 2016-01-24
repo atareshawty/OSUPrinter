@@ -7,17 +7,27 @@
 
   <!-- Medium and larger devices -->
   <div class="row visible-md-block visible-lg-block">
-    <div class="col-md-offset-3 col-md-3">
-      <%= link_to "Guests", guests_path, class: "btn btn-lg btn-primary btn-block" %>
-    </div>
-    <div class="col-md-3">
-      <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary btn-block" %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="col-md-offset-4 col-md-4">
+        <%= link_to "Next", new_print_path, class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% else %>
+      <div class="col-md-offset-3 col-md-3">
+        <%= link_to "Guests", new_print_path, class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
   </div>
 
   <!-- Smaller than medium devices -->
   <div class="visible-sm-block visible-xs-block text-center">
-    <%= link_to "Guests", guests_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary" %>
+    <% if user_signed_in? %>
+      <%= link_to "Next", new_print_path, class: "btn btn-lg btn-primary" %>
+    <% else %>
+      <%= link_to "Guests", new_print_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
   </div>
 </div>
