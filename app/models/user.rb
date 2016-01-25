@@ -24,9 +24,9 @@ class User < ActiveRecord::Base
 
   def matching_password
     if self.cse_username.length > 0 && self.cse_password.length == 0
-      errors[:base] << ("Please enter a password for your CSE username.")
+      errors[:cse_password] << ("Please enter a password for your CSE username.")
     elsif self.ece_username.length > 0 && self.ece_password.length == 0
-      errors[:base] << ("Please enter a password for your ECE username.")
+      errors[:ece_password] << ("Please enter a password for your ECE username.")
     end
   end
 end
