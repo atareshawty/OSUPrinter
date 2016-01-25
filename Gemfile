@@ -15,6 +15,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bower-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'
