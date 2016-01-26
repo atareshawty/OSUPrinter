@@ -12,7 +12,7 @@ class FileUploader < CarrierWave::Uploader::Base
 end
 
 module CarrierWave::Uploader::Cache
-	def full_cache_path
-		"#{::Rails.root}/public/#{cache_dir}/#{cache_name}"
-	end
+  def full_cache_path
+    "#{::Rails.root}/public/#{cache_dir}/#{cache_name}"
+  end
 end

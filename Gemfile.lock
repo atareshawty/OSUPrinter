@@ -137,6 +137,9 @@ GEM
     minitest (5.8.3)
     multi_json (1.11.2)
     nenv (0.2.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.0.2)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     notiffany (0.0.8)
@@ -272,6 +275,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  net-scp
+  net-ssh
   pg
   puma
   quiet_assets

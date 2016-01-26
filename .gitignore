@@ -88,3 +88,6 @@ $RECYCLE.BIN/
 
 # Environment Variables
 .env
+
+# Carrierwave
+/public/uploads
