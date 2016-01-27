@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def has_ece_account?
-    !(self.cse_username == "")
+    !(self.ece_username == "")
   end
 
   private
