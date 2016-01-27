@@ -69,7 +69,6 @@ class PrintsController < ApplicationController
 
       ssh.scp.upload!(@file_path, "#{@pwd}/tmp_osuprinter")
 
-      # TODO: Fix this
       if @file_path.split(".").last.downcase != "pdf"
         Net::SSH.start(@host, @username, :password => @password) do |ssh|
           ssh.exec!("libreoffice --invisible --convert-to pdf #{@pwd}/tmp_osuprinter/#{@file_name} --outdir #{@pwd}/tmp_osuprinter")
@@ -79,18 +78,66 @@ class PrintsController < ApplicationController
         @file_name = @file_name.split(".")
         @file_name[@file_name.length - 1] = "pdf"
         @file_name = @file_name.join(".")
-        puts @file_name
       end
     end
+
+    cookies.signed[:printers] = @printers
+    cookies.signed[:username] = @username
+    cookies.signed[:password] = @password
+    cookies.signed[:host] = @host
+    cookies.signed[:file_name] = @file_name
+    cookies.signed[:pwd] = @pwd
 
     redirect_to printer_options_path
   end
 
   # Method to get printer options from user (second form)
   def printer_options
+    @printers = cookies.signed[:printers]
   end
 
   # Send the information to the printer
   def create
+    puts params[:options]
+
+    @command = "lp -d #{params[:options][:printer]}"
+
+    if params[:options][:sides] == "Single Sided"
+      @command << " -o \"sides=one-sided"
+    elsif params[:options][:sides] == "Double Sided (long edge)"
+      @command << " -o \"sides=two-sided-long-edge"
+    elsif params[:options][:sides] == "Double Sided (short edge)"
+      @command << " -o \"sides=two-sided-short-edge"
+    end
+
+    if params[:options][:orientation] == "Landscape"
+      @command << " orientation-requested=4"
+    else
+      @command << " orientation-requested=3 number-up-layout=btlr"
+    end
+
+    if params[:options][:numberup] != 1
+      @command << " number-up=#{params[:options][:numberup]}\""
+    else
+      @command << "\""
+    end
+
+    @command << " -n #{params[:options][:copies]}"
+    @command << " tmp_osuprinter/#{cookies.signed[:file_name]}"
+
+    puts @command
+
+    Net::SSH.start(cookies.signed[:host], cookies.signed[:username], :password => cookies.siged[:password]) do |ssh|
+      ssh.exec!(@command)
+      ssh.exec!("rm -rf tmp_osuprinter/")
+    end
+
+    FileUtils.rm_rf("#{::Rails.root}/public/uploads/tmp")
+    cookies.delete :printers
+    cookies.delete :username
+    cookies.delete :password
+    cookies.delete :host
+    cookies.delete :file_name
+    cookies.delete :pwd
   end
 end
