@@ -1,0 +1,19 @@
+<%= simple_form_for :user, url: file_upload_path, method: :post, html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+  <%= f.error_notification %>
+
+  <% if @user.has_cse_account? && @user.has_ece_account? %>
+    <%= f.input :major, as: :radio_buttons, collection: ["CSE", "ECE"] %>
+  <% end %>
+  <%= f.input :file, as: :file, required: false %>
+
+  <div class="text-center">
+    <%= f.button :submit, 'Next' %>
+  </div>
+<% end %>

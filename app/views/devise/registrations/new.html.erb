@@ -7,6 +7,10 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :cse_username, label: "CSE Username", required: false %>
+    <%= f.input :cse_password, label: "CSE Password", required: false %>
+    <%= f.input :ece_username, label: "ECE Username", required: false %>
+    <%= f.input :ece_password, label: "ECE Password", required: false %>
   </div>
 
   <div class="form-actions">

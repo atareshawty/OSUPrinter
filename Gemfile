@@ -15,6 +15,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'bower-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'carrierwave'
+gem 'net-ssh'
+gem 'net-scp'
 
 group :development, :test do
   gem 'byebug'
