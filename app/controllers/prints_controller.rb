@@ -70,16 +70,17 @@ class PrintsController < ApplicationController
       ssh.scp.upload!(@file_path, "#{@pwd}/tmp_osuprinter")
 
       # TODO: Fix this
-      #if @file_path.split(".").last.downcase != "pdf"
-      #  Net::SSH.start(@host, @username, :password => @password) do |ssh|
-      #    ssh.exec!("libreoffice --invisible --convert-to pdf #{@pwd}/tmp_osuprinter/#{@file_name}")
-      #    #ssh.exec!("rm #{@pwd}/tmp_osuprinter/#{@file_name}")
-      #  end
-      #
-      #  @file_name = @file_name.split(".")
-      #  @file_name[@file_name.length - 1] = "pdf"
-      #  @file_name = @file_name.join(".")
-      #end
+      if @file_path.split(".").last.downcase != "pdf"
+        Net::SSH.start(@host, @username, :password => @password) do |ssh|
+          ssh.exec!("libreoffice --invisible --convert-to pdf #{@pwd}/tmp_osuprinter/#{@file_name} --outdir #{@pwd}/tmp_osuprinter")
+          ssh.exec!("rm -f #{@pwd}/tmp_osuprinter/#{@file_name}")
+        end
+
+        @file_name = @file_name.split(".")
+        @file_name[@file_name.length - 1] = "pdf"
+        @file_name = @file_name.join(".")
+        puts @file_name
+      end
     end
 
     redirect_to printer_options_path
