@@ -1,21 +1,19 @@
-<div class="jumbotron">
-  <h1 class="text-center">
+<h1 class="text-center">
+  <% if user_signed_in? %>
+    File Upload
+  <% else %>
+    Guest Login
+  <% end %>
+</h1>
+
+<hr />
+
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-8">
     <% if user_signed_in? %>
-      File Upload
+      <%= render 'user_form' %>
     <% else %>
-      Guest Login
+      <%= render 'guest_form' %>
     <% end %>
-  </h1>
-
-  <hr />
-
-  <div class="row">
-    <div class="col-md-offset-3 col-md-6">
-      <% if user_signed_in? %>
-        <%= render 'user_form' %>
-      <% else %>
-        <%= render 'guest_form' %>
-      <% end %>
-    </div>
   </div>
 </div>

@@ -1,19 +1,18 @@
-<%= simple_form_for :guest, url: file_upload_path, method: :post, html: { class: 'form-horizontal' },
-  wrapper: :horizontal_form,
+<%= simple_form_for :guest, url: file_upload_path,
   wrapper_mappings: {
-    check_boxes: :horizontal_radio_and_checkboxes,
-    radio_buttons: :horizontal_radio_and_checkboxes,
-    file: :horizontal_file_input,
-    boolean: :horizontal_boolean
+    check_boxes: :vertical_radio_and_checkboxes,
+    radio_buttons: :vertical_radio_and_checkboxes,
+    file: :vertical_file_input,
+    boolean: :vertical_boolean
   } do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :major, as: :radio_buttons, collection: ["CSE", "ECE"] %>
-  <%= f.input :username, placeholder: 'Username' %>
-  <%= f.input :password, placeholder: 'Password' %>
-  <%= f.input :file, as: :file, required: false %>
+  <%= f.input :major, as: :radio_buttons, collection: ["CSE", "ECE"], required: true %>
+  <%= f.input :username, placeholder: 'Username', required: true %>
+  <%= f.input :password, placeholder: 'Password', required: true %>
+  <%= f.input :file, as: :file, required: true %>
 
-  <div class="text-center">
+  <div class="form-actions">
     <%= f.button :submit, 'Next' %>
   </div>
 <% end %>
