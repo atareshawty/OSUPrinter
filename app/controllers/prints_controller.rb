@@ -127,7 +127,7 @@ class PrintsController < ApplicationController
 
     puts @command
 
-    Net::SSH.start(cookies.signed[:host], cookies.signed[:username], :password => cookies.siged[:password]) do |ssh|
+    Net::SSH.start(cookies.signed[:host], cookies.signed[:username], :password => cookies.signed[:password]) do |ssh|
       ssh.exec!(@command)
       ssh.exec!("rm -rf tmp_osuprinter/")
     end
