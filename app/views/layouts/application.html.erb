@@ -40,11 +40,14 @@
 
     <div class="container">
       <% flash.each do |type, message| %>
-        <div class="<%= {success: 'alert-success', error: 'alert-error', alert: 'alert-block', notice: 'alert-info'}[type] || "alert-#{type.to_s}" %> fade in">
-          <button class="close" data-dismiss="alert">×</button>
+        <div class="alert <%= bootstrap_class_for(type) %> fade in" >
           <%= message %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       <% end %>
+
       <%= yield %>
     </div>
 
